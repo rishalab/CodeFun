@@ -1,0 +1,93 @@
+{
+    "name": "codefun",
+    "displayName": "CodeFun",
+    "description": "A VS Code extension for fun relaxation breaks during coding",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.90.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:codefun.startRelaxation",
+        "onCommand:codefun.analyzeAndRoast",
+        "onCommand:codefun.showTypingSpeedDetails"
+    ],
+    "main": "./src/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "codefun.startRelaxation",
+                "title": "CodeFun: Start Relaxation Break"
+            },
+            {
+                "command": "codefun.analyzeAndRoast",
+                "title": "CodeFun: Analyze and Roast"
+            },
+            {
+                "command": "codefun.showTypingSpeedDetails",
+                "title": "CodeFun: Show Typing Speed Details"
+            }
+        ],
+        "configuration": {
+            "title": "CodeFun",
+            "properties": {
+                "codefun.eyeTimerDuration": {
+                    "type": "number",
+                    "default": 20,
+                    "description": "Duration of the eye rest timer in seconds"
+                },
+                "codefun.stretchTimerDuration": {
+                    "type": "number",
+                    "default": 20,
+                    "description": "Duration of the stretch timer in seconds"
+                },
+                "codefun.waterMinimum": {
+                    "type": "number",
+                    "default": 250,
+                    "description": "Minimum water amount in ml for hydration break"
+                },
+                "codefun.memeApiUrl": {
+                    "type": "string",
+                    "default": "https://meme-api.com/gimme/10",
+                    "description": "API URL for fetching memes"
+                },
+                "codefun.memePointCost": {
+                    "type": "number",
+                    "default": 10,
+                    "description": "Fun Points cost to view a meme or enter meme viewer"
+                },
+                "codefun.roastPointCost": {
+                    "type": "number",
+                    "default": 20,
+                    "description": "Fun Points cost to view a code roast"
+                },
+                "codefun.typingSpeedPointCost": {
+                    "type": "number",
+                    "default": 0,
+                    "description": "Fun Points cost to start the typing speed test"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "node ./test/runTest.js"
+    },
+    "dependencies": {
+        "axios": "^1.7.2"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.90.0",
+        "@types/glob": "^8.1.0",
+        "@types/mocha": "^10.0.7",
+        "@types/node": "^20.14.2",
+        "eslint": "^8.57.0",
+        "glob": "^10.4.1",
+        "mocha": "^10.4.0",
+        "typescript": "^5.4.5",
+        "@vscode/test-electron": "^2.4.0"
+    }
+}
